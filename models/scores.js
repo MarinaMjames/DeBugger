@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+
   var score = sequelize.define("score", {
 	    
       points: {
@@ -24,3 +25,4 @@ module.exports = function(sequelize, DataTypes) {
 	};	  
   return score;
 };
+
