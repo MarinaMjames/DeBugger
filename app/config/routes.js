@@ -25,10 +25,6 @@ module.exports = (
   // The high level component is the Router component
   <Router history={browserHistory}>
     <Route path="/" component={Main}>
-        <Route path="" component={} />
-        <Route path="" component={} />
-
-        <IndexRoute component={} />
     </Route>
   </Router>
 );
