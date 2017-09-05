@@ -1,26 +1,22 @@
 // Include React
-var React = require ("react");
+import React from 'react';
+import { Link } from 'react-router';
 
-var Link = require ("react-router");
-
-class Main extends React.Component{
+export default class Main extends React.Component{
 
   // Here we render the function
   render() {
 
     return (
       <div>
-        <h1>Hello World</h1>
-        <Link to="/saved">Click here for saved Articles</Link>
+        <h1>DeBugger!</h1>
+        <Link to="/login">Click here to login</Link>
         <hr/>
-        <Link to="/search">Click here to search for Articles</Link>
+        <Link to="/sign-up">Click here to sign-up</Link>
         <div>
           {this.props.children}
         </div>
       </div>
     )
   }
-}
-
-// Export the component back for use in other files
-export default Main;
+};
