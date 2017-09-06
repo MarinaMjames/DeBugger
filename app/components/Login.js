@@ -1,10 +1,9 @@
 // Include React
 
-var React = require ("react");
+import React from 'react';
+import { Link } from 'react-router';
 
-var Link = require ("react-router");
-
-class Login extends React.Component{
+export default class Login extends React.Component{
 
   // Here we render the function
   render() {
@@ -27,5 +26,4 @@ class Login extends React.Component{
   }
 }
 
-// Export the component back for use in other files
-export default Login;
+

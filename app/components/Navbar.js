@@ -1,9 +1,8 @@
 // Include React
-var React = require ("react");
+import React from 'react';
+import { Link } from 'react-router';
 
-var Link = require ("react-router");
-
-class Navbar extends React.Component{
+export default class Navbar extends React.Component{
 
   // Here we render the function
   render() {
@@ -20,6 +19,3 @@ class Navbar extends React.Component{
     )
   }
 }
-
-// Export the component back for use in other files
-export default Navbar;
