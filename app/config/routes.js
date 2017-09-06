@@ -8,7 +8,7 @@ import { Route, Router, IndexRoute, browserHistory } from 'react-router';
 import Main from '../components/Main';
 
 // Export the Routes
-module.exports = (
+export default (
 
   // The high level component is the Router component
   <Router history={browserHistory}>
@@ -16,4 +16,5 @@ module.exports = (
 
     </Route>
   </Router>
+  
 );
