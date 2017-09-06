@@ -31,12 +31,13 @@ export default (
   	  <Switch>
 	    <Route exact path="/" component={Homepage}/>
 	    <Route path="/signup" components={Signup}/>
+
 	  	
 	  </Switch>
   	</Main>
 =======
   <Router history={browserHistory}>
-    <Route path="/" component={Main}>
+    <Route path="/" component={Homepage}>
 
     </Route>
 >>>>>>> 5a754436ddfd6ba640bce1ff50ad2fa4b2173358

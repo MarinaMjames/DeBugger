@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default class Main extends React.Component{
 
