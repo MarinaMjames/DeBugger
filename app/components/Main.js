@@ -11,14 +11,15 @@ export default class Main extends React.Component{
 
     return (
       <div>
-      <Navbar />
-        <h1>DeBugger!</h1>
-        <Link to='/login'>Click here to login</Link>
-        <hr/>
-        <Link to='/sign-up'>Click here to sign-up</Link>
-        <div>
-          {this.props.children}
-        </div>
+        <Navbar />
+          <h1>DeBugger!</h1>
+          <Link to='/login'>Click here to login</Link>
+          <hr/>
+          <Link to='/sign-up'>Click here to sign-up</Link>
+          <div>
+            {this.props.children}
+          </div>
+        <Footer />
       </div>
     )
   }
