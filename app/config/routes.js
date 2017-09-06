@@ -1,4 +1,5 @@
 // Inclue the React library
+<<<<<<< HEAD
 import React from "react";
 
 // Include the react-router module
@@ -10,11 +11,21 @@ import Signup from "../components/Signup";
 
 // Include the Route component for displaying individual routes
 // Include the IndexRoute (catch-all route)
+=======
+import React from 'react';
+
+// Include the react-router module
+import { Route, Router, IndexRoute, browserHistory } from 'react-router';
+
+// Reference the high-level components
+import Main from '../components/Main';
+>>>>>>> 5a754436ddfd6ba640bce1ff50ad2fa4b2173358
 
 // Export the Routes
-module.exports = (
+export default (
 
   // The high level component is the Router component
+<<<<<<< HEAD
   <Router>
 	<Main>
   	  <Switch>
@@ -23,5 +34,12 @@ module.exports = (
 	  	
 	  </Switch>
   	</Main>
+=======
+  <Router history={browserHistory}>
+    <Route path="/" component={Main}>
+
+    </Route>
+>>>>>>> 5a754436ddfd6ba640bce1ff50ad2fa4b2173358
   </Router>
+  
 );

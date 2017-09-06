@@ -10,14 +10,27 @@ class Signup extends React.Component{
 
     return (
       <div className="col-xs-12 col-md-12">
-        <section className="section">
-          <h2 className="text-big">Sign Up</h2>
-          <div className="row"> 
-            <div className="input">
-              <input id="name" placeholder="Name" type="text"/>
-            </div>
+        <div className="field">
+          <div className="control">
+            <input className="input is-info" type="text" placeholder="Full Name"/>
           </div>
-        </section>
+        </div>
+        <div className="field">
+          <div className="control">
+            <input className="input is-info" type="text" placeholder="E-mail"/>
+          </div>
+        </div>
+        <div className="field">
+          <div className="control">
+            <input className="input is-info" type="text" placeholder="Username"/>
+          </div>
+        </div>
+        <div className="field">
+          <div className="control">
+            <input className="input is-info" type="password" placeholder="Password"/>
+          </div>
+        </div>
+        <button class="button">Create Account</button>
       </div>
     )
   }
