@@ -4,12 +4,13 @@ module.exports = function(sequelize, DataTypes) {
 	    
       points: {
 	      type: DataTypes.INTEGER,
-        min: -1000000,
+        min: 0,
         defaultValue: 0,
         len: [1,10]
 
 	    },
 	}
+
 );
 
 
@@ -22,7 +23,9 @@ module.exports = function(sequelize, DataTypes) {
     });	
 
     
-	};	  
+	};	 
+
   return score;
+  
 };
 
