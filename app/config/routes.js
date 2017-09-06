@@ -6,7 +6,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Main from "../components/Main";
 import Homepage from "../pages/Homepage";
-import Navbar from "../components/Navbar";
+import Signup from "../components/Signup";
 
 // Include the Route component for displaying individual routes
 // Include the IndexRoute (catch-all route)
@@ -19,6 +19,7 @@ module.exports = (
 	<Main>
   	  <Switch>
 	    <Route exact path="/" component={Homepage}/>
+	    <Route path="/signup" components={Signup}/>
 	  	
 	  </Switch>
   	</Main>

@@ -10,7 +10,8 @@ class Homepage extends React.Component{
 
     return (
       <div>
-        <h2>Im the HomePage</h2>
+        <div> 
+        </div>
         
       </div>
     )

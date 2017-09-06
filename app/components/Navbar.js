@@ -9,12 +9,12 @@ class Navbar extends React.Component{
   render() {
 
     return (
-      <div class="col-xs-12 col-md-12">
-      <img src=""/> <span>DeBugger</span>
-     	<div class="tabs">
-     		<a href="" title="" class="tab">Home</a>
-     		<a href="" title="" class="tab">Stats</a>
-     		<a href="" title="" class="tab">Leaderboard</a>
+      <div className="col-xs-12 col-md-12">
+      <span>DeBugger</span>
+     	<div className="tabs">
+     		<a href="/signup" title="" className="tab">Sign Up</a>
+     		<a href="" title="" className="tab">Stats</a>
+     		<a href="" title="" className="tab">Leaderboard</a>
      	</div>
       </div>
     )
