@@ -1,7 +1,7 @@
 // Include React
 
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default class Signup extends React.Component{
 
@@ -30,7 +30,7 @@ export default class Signup extends React.Component{
             <input className="input is-info" type="password" placeholder="Password"/>
           </div>
         </div>
-        <button class="button">Create Account</button>
+        <button className="button">Create Account</button>
       </div>
     )
   }

@@ -2,19 +2,20 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-export default class Homepage extends React.Component{
+const Homepage = () => {
 
   // Here we render the function
-  render() {
 
-    return (
+  	return (
+
+
         <div> 
         	<div className="jumbotron">
 			  <h1 className="display-3">DeBugger</h1>
 			  <p>DeBugger is a retro style game inspired by Grace Hopper and the everyday life of Web Developer Intern</p>
 			</div>
 
-			<div className="card" style="width: 20rem;">
+			<div className="card">
 			  <img className="card-img-top" src="..." alt="Card image cap"/>
 			  <div className="card-body">
 			    <h4 className="card-title">How to Play</h4>
@@ -23,7 +24,7 @@ export default class Homepage extends React.Component{
 			  </div>
 			</div>
 
-			<div className="card" style="width: 20rem;">
+			<div className="card" >
 			  <img className="card-img-top" src="..." alt="Card image cap"/>
 			  <div className="card-body">
 			    <h4 className="card-title">Gameplay Controls</h4>
@@ -33,6 +34,9 @@ export default class Homepage extends React.Component{
 			</div>
 
         </div>
-    )
-  }
+  	)
+		   
 }
+
+
+export default Homepage;
