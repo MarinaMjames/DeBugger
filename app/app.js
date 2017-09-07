@@ -3,7 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Grabs the Routes
-import routes from './config/routes';
+// import Routes from './config/routes';
+import Main from './components/Main';
 
 // Renders the contents according to the route page.
-ReactDOM.render(routes, document.getElementById('app'));
+ReactDOM.render(<Main />, document.getElementById('app'));
