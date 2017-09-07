@@ -1,5 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
+	
 	var User = sequelize.define('User', {
+		
 		username: {
 			type: DataTypes.STRING,
 			allowNull: false
@@ -16,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.ENUM('active', 'inactive'),
 			defaultValue: 'active'
 		}
+
 	});
 	User.associate = function(models) {
 		User.hasMany(models.Score, {
@@ -23,4 +26,5 @@ module.exports = function(sequelize, DataTypes) {
 		});
 	}
 	return User;
+	
 }
