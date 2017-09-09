@@ -4,11 +4,10 @@ import React from "react";
 // Include the react-router module
 // Include the Router component to contain all our Routes
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-// import Main from "../components/Main";
 import Homepage from "../pages/Homepage";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
-// import Game from "../pages/Game";
+
 
 
 // Include the Route component for displaying individual routes
