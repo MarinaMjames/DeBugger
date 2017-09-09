@@ -4,12 +4,13 @@ import {
   BrowserRouter as Router,
   Route,
   Link
-} from 'react-router-dom'
+} from 'react-router-dom';
 
 import Routes from "../config/routes";
 import Homepage from "../pages/Homepage";
-import Login from "./Login"
-import Signup from "./Signup"
+import Login from "./Login";
+import Signup from "./Signup";
+// import Game from "../pages/Game";
 
 
 export default class Navbar extends React.Component{
