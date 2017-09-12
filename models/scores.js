@@ -14,16 +14,16 @@ module.exports = function(sequelize, DataTypes) {
 );
 
 
- score.associate = function(models) {
+ // score.associate = function(models) {
   
-    score.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });	
+ //    score.belongsTo(models.User, {
+ //      foreignKey: {
+ //        allowNull: false
+ //      }
+ //    });	
 
     
-	};	 
+	// };	 
 
   return score;
   

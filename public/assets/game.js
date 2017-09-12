@@ -228,20 +228,27 @@ function update() {
     game.physics.arcade.overlap(greenEnemies, bullets, hitEnemy, null, this);
 
     game.physics.arcade.overlap(player, blueEnemies, shipCollide, null, this);
-    game.physics.arcade.overlap(bullets, blueEnemies, hitEnemy, null, this);
+    game.physics.arcade.overlap(blueEnemies, bullets, hitEnemy, null, this);
 
     game.physics.arcade.overlap(blueEnemyBullets, player, enemyHitsPlayer, null, this);
 
     //  Game over?
     if (! player.alive && gameOver.visible === false) {
+        console.log("before post: " + score);
+        $.post("/api/score/new", {score: score})
+            .done(function(){
+                console.log("score added")
+            });
         gameOver.visible = true;
         gameOver.alpha = 0;
         var fadeInGameOver = game.add.tween(gameOver);
+
         fadeInGameOver.to({alpha: 1}, 1000, Phaser.Easing.Quintic.Out);
         fadeInGameOver.onComplete.add(setResetHandlers);
         fadeInGameOver.start();
         function setResetHandlers() {
             //  The "click to restart" handler
+
             tapRestart = game.input.onTap.addOnce(_restart,this);
             spaceRestart = fireButton.onDown.addOnce(_restart,this);
             function _restart() {
