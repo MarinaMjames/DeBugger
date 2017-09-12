@@ -11,15 +11,30 @@ const helpers = {
 	},
 	userLogin: (user) => {
 		return axios.post('/user/login', user).then((response) => {
-			localStorage.setItem('token', response.data.token);
-			console.log(jwt.decode(response.data.token));
+			const token = response.data.token;
+			localStorage.setItem('token', token);
+			helpers.setAuthorizationToken(token);
+
 			return response.data;
 		}).catch((error) => {
 			return error;
 		});
 	},
-	userLogout: (user) => {
+	userLogout: () => {
+		helpers.setAuthorizationToken();
 		localStorage.removeItem('token');
+	},
+	setAuthorizationToken: (token) => {
+		if (token) {
+			axios.defaults.headers.common['Authorization'] = 'Bearer '+token;
+		} else {
+			delete axios.defaults.headers.common['Authorization'];
+		}
+	},
+	getUsername: () => {
+		const token = localStorage.getItem('token');
+		jwt.decode(token);
+		return token.username;
 	}
 };
 
