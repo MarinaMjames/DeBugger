@@ -10,9 +10,12 @@ router.route('/sign-up')
 		res.sendFile();
 	})
 	.post(passport.authenticate('local-signup', {
-		successRedirect: '/',
-		failureRedirect: '/user/sign-up'
-	}));
+		successRedirect: true,
+		failureRedirect: false
+	})/*function(req, res) {
+		console.log(req.body);
+		res.send(req.body);
+	}*/);
 
 router.route('/login')
 	.get(function(req, res) {

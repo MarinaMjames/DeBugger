@@ -41,7 +41,7 @@ app.use(express.static(__dirname + "/public"));
 // routes
 app.use('/', htmlRoutes);
 app.use('/api', apiRoutes);
-app.use('/user', apiRoutes);
+app.use('/user', userRoutes);
 
 // passport strategy
 require('./passport/passport.js')(passport, models.User);
