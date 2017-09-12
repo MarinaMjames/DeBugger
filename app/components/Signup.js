@@ -9,7 +9,8 @@ export default class Signup extends React.Component{
   render() {
 
     return (
-      <div className="col-xs-12 col-md-12">
+      <div className="form col-xs-6 col-md-6">
+      <center>
         <div className="field">
           <div className="control">
             <input className="input is-info" type="text" placeholder="Full Name"/>
@@ -31,7 +32,9 @@ export default class Signup extends React.Component{
           </div>
         </div>
         <button className="button">Create Account</button>
+        </center>
       </div>
+      
     )
   }
 }

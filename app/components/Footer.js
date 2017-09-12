@@ -9,8 +9,8 @@ export default class Footer extends React.Component{
   render() {
 
     return (
-      <div className="col-xs-12 col-md-12">
-      	<div> Copyright 2017 DeBugger <br />
+      <div className="footer col-xs-12 col-md-12">
+      	<div>&copy; Copyright 2017 DeBugger <br />
       		<a href="https://github.com/MarinaMjames/DeBugger">Github Repo</a>
       	</div>
       </div>
