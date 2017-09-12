@@ -9,6 +9,7 @@ import Homepage from "../pages/Homepage";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 // import Game from "../pages/Game";
+import helpers from "../utils/helpers.js";
 
 
 // Include the Route component for displaying individual routes
@@ -25,6 +26,7 @@ const Routes = () => (
             <Link to="/">Home</Link>
             <Link to="/signup">Sign-up</Link>
             <Link to="/login">Login</Link>
+            <Link to="/" onClick={helpers.userLogout}>Logout</Link>
             <a href="/game">Game</a>
 
           </div>

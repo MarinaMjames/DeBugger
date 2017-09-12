@@ -25,6 +25,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
+    "jsonwebtoken": "^8.0.0",
     "method-override": "^2.3.9",
     "morgan": "^1.8.2",
     "mysql": "^2.14.1",
@@ -35,7 +36,8 @@
     "react-dom": "^15.6.1",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "sequelize": "^4.7.5"
+    "sequelize": "^4.7.5",
+    "validator": "^8.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
