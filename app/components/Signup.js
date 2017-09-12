@@ -1,6 +1,6 @@
 // Include React
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter } from 'react-router-dom';
 
 import helpers from '../utils/helpers';
 
@@ -31,8 +31,13 @@ export default class Signup extends React.Component{
 
   onSubmit(e) {
     e.preventDefault();
+    this.setState({ errors: {} });
     helpers.userSignup(this.state.user).then((data) => {
-      console.log('returned data:', data);
+      if (data) {
+        this.setState({ errors: data });
+      } else {
+        this.props.history.push('/login');
+      }
     });
   }
 
@@ -42,7 +47,7 @@ export default class Signup extends React.Component{
     return (
       <div className="col-xs-12 col-md-12">
         <form onSubmit={this.onSubmit}>
-          {this.state.errors.summary && <p>{this.state.errors.summary}</p>}
+          {this.state.errors.message && <p>{this.state.errors.message}</p>}
           <div className="field">
             <div className="control">
               <input
@@ -51,9 +56,9 @@ export default class Signup extends React.Component{
                 placeholder="Username"
                 name="username"
                 value={this.state.user.username}
-                errorText={this.state.errors.username}
                 onChange={this.onChange}
               />
+              {this.state.errors.username && <p>{this.state.errors.username}</p>}
             </div>
           </div>
           <div className="field">
@@ -64,9 +69,9 @@ export default class Signup extends React.Component{
                 placeholder="E-mail"
                 name="email"
                 value={this.state.user.email}
-                errorText={this.state.errors.email}
                 onChange={this.onChange}
               />
+              {this.state.errors.email && <p>{this.state.errors.email}</p>}
             </div>
           </div>
           <div className="field">
@@ -77,9 +82,9 @@ export default class Signup extends React.Component{
                 placeholder="Password"
                 name="password"
                 value={this.state.user.password}
-                errorText={this.state.errors.password}
                 onChange={this.onChange}
               />
+              {this.state.errors.password && <p>{this.state.errors.password}</p>}
             </div>
           </div>
           <div className="field">
@@ -90,9 +95,9 @@ export default class Signup extends React.Component{
                 placeholder="Confirm Password"
                 name="confirmPassword"
                 value={this.state.user.confirmPassword}
-                errorText={this.state.errors.confirmPassword}
                 onChange={this.onChange}
               />
+              {this.state.errors.confirmPassword && <p>{this.state.errors.confirmPassword}</p>}
             </div>
           </div>
           <button className="button">Create Account</button>

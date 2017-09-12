@@ -29,8 +29,14 @@ export default class Login extends React.Component{
 
   onSubmit(e) {
     e.preventDefault();
+    this.setState({ errors: {} });
     helpers.userLogin(this.state.user).then((data) => {
-      console.log('returned data:', data);
+      if (data) {
+        this.setState({ errors: data });
+      } else {
+        this.props.history.push('/');
+      }
+      console.log(this.state);
     });
   }
   // Here we render the function
@@ -39,7 +45,7 @@ export default class Login extends React.Component{
     return (
       <div className="col-xs-12 col-md-12">
         <form onSubmit={this.onSubmit}>
-          {this.state.errors.summary && <p>{this.state.errors.summary}</p>}
+          {this.state.errors.message && <p>{this.state.errors.message}</p>}
           <div className="field">
             <div className="control">
               <input
@@ -48,7 +54,6 @@ export default class Login extends React.Component{
                 placeholder="Username"
                 name="username"
                 value={this.state.user.username}
-                errorText={this.state.errors.username}
                 onChange={this.onChange}
               />
             </div>
@@ -61,7 +66,6 @@ export default class Login extends React.Component{
                 placeholder="Password"
                 name="password"
                 value={this.state.user.password}
-                errorText={this.state.errors.password}
                 onChange={this.onChange}
               />
             </div>

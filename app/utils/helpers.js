@@ -1,4 +1,5 @@
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 const helpers = {
 	userSignup: (user) => {
@@ -10,10 +11,15 @@ const helpers = {
 	},
 	userLogin: (user) => {
 		return axios.post('/user/login', user).then((response) => {
-			return response;
+			localStorage.setItem('token', response.data.token);
+			console.log(jwt.decode(response.data.token));
+			return response.data;
 		}).catch((error) => {
 			return error;
 		});
+	},
+	userLogout: (user) => {
+		localStorage.removeItem('token');
 	}
 };
 
