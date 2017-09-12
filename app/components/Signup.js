@@ -11,10 +11,10 @@ export default class Signup extends React.Component{
     this.state = {
       errors: {},
       user: {
-        name: '',
-        email: '',
         username: '',
-        password: ''
+        email: '',
+        password: '',
+        confirmPassword: ''
       }
     }
 
@@ -45,22 +45,54 @@ export default class Signup extends React.Component{
           {this.state.errors.summary && <p>{this.state.errors.summary}</p>}
           <div className="field">
             <div className="control">
-              <input className="input is-info" type="text" placeholder="Full Name" name="name" value={this.state.user.name} onChange={this.onChange}/>
+              <input
+                className="input is-info"
+                type="text"
+                placeholder="Username"
+                name="username"
+                value={this.state.user.username}
+                errorText={this.state.errors.username}
+                onChange={this.onChange}
+              />
             </div>
           </div>
           <div className="field">
             <div className="control">
-              <input className="input is-info" type="text" placeholder="E-mail" name="email" value={this.state.user.email} onChange={this.onChange}/>
+              <input
+                className="input is-info"
+                type="text"
+                placeholder="E-mail"
+                name="email"
+                value={this.state.user.email}
+                errorText={this.state.errors.email}
+                onChange={this.onChange}
+              />
             </div>
           </div>
           <div className="field">
             <div className="control">
-              <input className="input is-info" type="text" placeholder="Username" name="username" value={this.state.user.username} onChange={this.onChange}/>
+              <input
+                className="input is-info"
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={this.state.user.password}
+                errorText={this.state.errors.password}
+                onChange={this.onChange}
+              />
             </div>
           </div>
           <div className="field">
             <div className="control">
-              <input className="input is-info" type="password" placeholder="Password" name="password" value={this.state.user.password} onChange={this.onChange}/>
+              <input
+                className="input is-info"
+                type="password"
+                placeholder="Confirm Password"
+                name="confirmPassword"
+                value={this.state.user.confirmPassword}
+                errorText={this.state.errors.confirmPassword}
+                onChange={this.onChange}
+              />
             </div>
           </div>
           <button className="button">Create Account</button>

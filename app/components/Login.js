@@ -1,7 +1,8 @@
 // Include React
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+import helpers from '../utils/helpers';
 
 export default class Login extends React.Component{
   constructor(props) {
@@ -28,7 +29,9 @@ export default class Login extends React.Component{
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    helpers.userLogin(this.state.user).then((data) => {
+      console.log('returned data:', data);
+    });
   }
   // Here we render the function
   render() {
@@ -45,18 +48,22 @@ export default class Login extends React.Component{
                 placeholder="Username"
                 name="username"
                 value={this.state.user.username}
-                onChange={this.onChange}/>
+                errorText={this.state.errors.username}
+                onChange={this.onChange}
+              />
             </div>
           </div>
           <div className="field">
             <div className="control">
               <input
-              className="input is-info"
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={this.state.user.password}
-              onChange={this.onChange}/>
+                className="input is-info"
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={this.state.user.password}
+                errorText={this.state.errors.password}
+                onChange={this.onChange}
+              />
             </div>
           </div>
         	<button className="button">Login</button>
