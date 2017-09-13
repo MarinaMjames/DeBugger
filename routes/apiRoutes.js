@@ -8,13 +8,19 @@ var db = require('../models');
 var router = express.Router();
 
 router.post('/score/new', authenticate, function (req, res) {
-	db.score.create({
-		"UserId": req.user.id,
-		"username": req.user.username,
-		"points": req.body.score
-	}).then(function(data){
+	db.score.findOne({ where: {
+		UserId: req.user.id
+	}}).then(function(result) {
+		if (!result) {
+			db.score.create({
+				"UserId": req.user.id,
+				"username": req.user.username,
+				"points": req.body.score
+			});
+		} else if (result.points < req.body.score) {
+			result.update({ "points": req.body.score });
+		}
 		res.end();
-		console.log("score sent");
 	});
 });
 
