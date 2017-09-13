@@ -9,12 +9,12 @@ export default class Signup extends React.Component{
     super(props);
 
     this.state = {
-      Leaderboard: [{position: '1', name: 'Marina', score: '1000'},
-      {position: '1', name: 'Joe', score: '900'},
-      {position: '1', name: 'Andrew', score: '800'}]
+      Leaderboard: [
+        {position: '1', name: 'Moe', score: '1000'},
+        {position: '1', name: 'Larry', score: '900'},
+        {position: '1', name: 'Curly', score: '800'}
+      ]
     }
-
-    // bind component functions
   }
 
   // render component
@@ -28,23 +28,23 @@ export default class Signup extends React.Component{
         <table className="table">
         	<thead>
 	        	<tr>
-	        		<th>#</th>
+	        		<th>Pos.</th>
 	        		<th>Username</th>
 	        		<th>Score</th>
 	        	</tr>
         	</thead>
         	<tbody>
-            {}
-	        	<tr>
-	        		<td>1</td>
-	        		<td>Joe</td>
-	        		<td>100</td>
-	        	</tr>
-	        	<tr>
-	        		<td>1</td>
-	        		<td>Joe</td>
-	        		<td>100</td>
-	        	</tr>
+            {
+              this.state.Leaderboard.map((leaders, index) => {
+                return (
+                  <tr>
+                    <td>{leaders.position}</td>
+                    <td>{leaders.name}</td>
+                    <td>{leaders.score}</td>
+                  </tr>
+                );
+              })
+            }
         	</tbody>
         </table>
 
