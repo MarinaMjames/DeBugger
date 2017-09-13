@@ -25,7 +25,7 @@ router.post('/score/new', authenticate, function (req, res) {
 });
 
 router.get('/score', function (req, res) {
-	db.score.findAll().then(function(data){
+	db.score.findAll({ order: [['points', 'DESC']]}).then(function(data){
 		res.json({data});
 	});
 });
