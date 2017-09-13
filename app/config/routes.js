@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Homepage from "../pages/Homepage";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
+// import Game from "../pages/Game";
+import helpers from "../utils/helpers.js";
 
 
 
@@ -25,6 +27,7 @@ const Routes = () => (
                 <Link to="/">Home</Link>
                 <Link to="/signup">Sign Up</Link>
                 <Link to="/login">Login</Link>
+            <Link to="/" onClick={helpers.userLogout}>Logout</Link>
                 <a href="/game">Game</a>
               </div>
             </div>
