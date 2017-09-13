@@ -15,13 +15,16 @@ export default class Signup extends React.Component{
         email: '',
         password: '',
         confirmPassword: ''
-      }
+      },
+      isLoading: false
     }
 
+    // bind component functions
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  // get user inputs and save them to state
   onChange(e) {
     const field = e.target.name;
     const user = this.state.user;
@@ -29,25 +32,29 @@ export default class Signup extends React.Component{
     this.setState({ user });
   }
 
+  // submit sign up form
   onSubmit(e) {
     e.preventDefault();
-    this.setState({ errors: {} });
+    console.log(helpers.getUser());
+    this.setState({ errors: {}, isLoading: true });
     helpers.userSignup(this.state.user).then((data) => {
-      if (data) {
-        this.setState({ errors: data });
+      // if errors are returned save them to state
+      if (!data.success) {
+        this.setState({ errors: data.errors, isLoading: false });
       } else {
+      // else if user was successfully created proceed to login form
         this.props.history.push('/login');
       }
     });
   }
 
-  // Here we render the function
+  // render component
   render() {
 
     return (
       <div className="col-xs-12 col-md-12">
         <form onSubmit={this.onSubmit}>
-          {this.state.errors.message && <p>{this.state.errors.message}</p>}
+          {this.state.errors.message && <p className="help is-danger">{this.state.errors.message}</p>}
           <div className="field">
             <div className="control">
               <input
@@ -58,7 +65,7 @@ export default class Signup extends React.Component{
                 value={this.state.user.username}
                 onChange={this.onChange}
               />
-              {this.state.errors.username && <p>{this.state.errors.username}</p>}
+              {this.state.errors.username && <p className="help is-danger">{this.state.errors.username}</p>}
             </div>
           </div>
           <div className="field">
@@ -71,7 +78,7 @@ export default class Signup extends React.Component{
                 value={this.state.user.email}
                 onChange={this.onChange}
               />
-              {this.state.errors.email && <p>{this.state.errors.email}</p>}
+              {this.state.errors.email && <p className="help is-danger">{this.state.errors.email}</p>}
             </div>
           </div>
           <div className="field">
@@ -84,7 +91,7 @@ export default class Signup extends React.Component{
                 value={this.state.user.password}
                 onChange={this.onChange}
               />
-              {this.state.errors.password && <p>{this.state.errors.password}</p>}
+              {this.state.errors.password && <p className="help is-danger">{this.state.errors.password}</p>}
             </div>
           </div>
           <div className="field">
@@ -97,10 +104,10 @@ export default class Signup extends React.Component{
                 value={this.state.user.confirmPassword}
                 onChange={this.onChange}
               />
-              {this.state.errors.confirmPassword && <p>{this.state.errors.confirmPassword}</p>}
+              {this.state.errors.confirmPassword && <p className="help is-danger">{this.state.errors.confirmPassword}</p>}
             </div>
           </div>
-          <button className="button">Create Account</button>
+          <button className="button" disabled={this.state.isLoading}>Create Account</button>
         </form>
       </div>
     )
