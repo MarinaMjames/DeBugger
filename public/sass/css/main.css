@@ -6,6 +6,15 @@ a:hover {
   text-decoration: none;
   color: #FFE400; }
 
+a:active {
+  text-decoration: none;
+  color: #FFE400; }
+
+#phaser-demo {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-left: 15%; }
+
 .navbar {
   position: absolute;
   display: flex;
@@ -43,20 +52,28 @@ a:hover {
     color: #FFE400; }
   .card .card-img-top {
     width: 100px; }
-
-.btn .btn-primary {
-  background-color: #14A76C;
-  border-color: #747474; }
-.btn .btn-primary:hover {
-  background-color: #FFE400;
-  border-color: #FFE400;
-  color: #272727; }
+  .card .btn-primary {
+    background-color: #14A76C;
+    border-color: #747474; }
+  .card .btn-primary:hover {
+    background-color: #FFE400;
+    border-color: #FFE400;
+    color: #272727; }
+  .card .btn-primary:active {
+    background-color: #FFE400;
+    border-color: #FFE400;
+    color: #272727; }
 
 .button {
   background-color: #14A76C;
   border-color: #747474; }
 
 .button:hover {
+  background-color: #FFE400;
+  border-color: #FFE400;
+  color: #272727; }
+
+.button:active {
   background-color: #FFE400;
   border-color: #FFE400;
   color: #272727; }

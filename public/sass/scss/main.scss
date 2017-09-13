@@ -13,8 +13,16 @@ a:hover {
 	text-decoration: none;
 	color: $yellow;
 }
+a:active {
+	text-decoration: none;
+	color: $yellow;
+}
 // IDs
-
+#phaser-demo {
+	margin-top: 10%;
+	margin-bottom: 10%;
+	margin-left: 15%;
+}
 
 // CLASSES
 .navbar {
@@ -59,8 +67,6 @@ a:hover {
 	.card-img-top {
 		width: 100px;
 	}
-}
-.btn {
 	.btn-primary{
 		background-color: $font-color;
 		border-color: $second-color;
@@ -70,13 +76,24 @@ a:hover {
 		border-color: $yellow;
 		color: $bkground;
 	}
+	.btn-primary:active {
+		background-color: $yellow;
+		border-color: $yellow;
+		color: $bkground;	
+	}
 }
+
 .button {
 	background-color: $font-color;
 	border-color: $second-color;
 
 }
 .button:hover {
+		background-color: $yellow;
+		border-color: $yellow;
+		color: $bkground;
+}
+.button:active {
 		background-color: $yellow;
 		border-color: $yellow;
 		color: $bkground;
