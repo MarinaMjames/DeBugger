@@ -35,7 +35,7 @@ app.use('/api', apiRoutes);
 app.use('/user', userRoutes);
 
 // setup server to sync models and listen
-models.sequelize.sync({}).then(function() {  // remove force: true once tables are setup
+models.sequelize.sync({ force: true }).then(function() {  // remove force: true once tables are setup
 	app.listen(port, function() {
 		console.log('Server listening on PORT ' + port);
 	});
