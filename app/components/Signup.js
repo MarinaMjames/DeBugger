@@ -54,7 +54,6 @@ export default class Signup extends React.Component{
     return (
 
       <div className="form col-xs-6 col-md-6">
-
         <form onSubmit={this.onSubmit}>
           {this.state.errors.message && <p className="help is-danger">{this.state.errors.message}</p>}
           <div className="field">
@@ -109,10 +108,8 @@ export default class Signup extends React.Component{
               {this.state.errors.confirmPassword && <p className="help is-danger">{this.state.errors.confirmPassword}</p>}
             </div>
           </div>
-
           <button className="button" disabled={this.state.isLoading}>Create Account</button>
         </form>
-
       </div>
       
     )

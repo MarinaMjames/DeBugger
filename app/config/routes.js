@@ -24,7 +24,7 @@ const Routes = () => (
 
         <div className="page col-xs-12 col-md-12">
             <div className="navbar navbar-default navbar-fixed-top">
-              <span>DeBugger</span>
+            <span>DeBugger</span>
               <div className="container">
                 <Link to="/">Home</Link>
                 <Link to="/signup">Sign Up</Link>
