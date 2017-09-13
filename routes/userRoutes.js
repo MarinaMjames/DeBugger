@@ -3,22 +3,27 @@ var express = require('express');
 var validator = require('validator');
 var bCrypt = require('bcrypt-nodejs');
 var jwt = require('jsonwebtoken');
+// import files
 var jwtConfig = require('../authentication/config.js');
-
 var db = require('../models');
 
 // setup router
 var router = express.Router();
 
 router.post('/sign-up', function(req, res) {
+	// validate form
 	var validationResult = validateSignupForm(req.body);
+
+	// validation fail
 	if (!validationResult.success) {
 		return res.json({
 			success: false,
-			message: validationResult.message,
 			errors: validationResult.errors
 		});
 	}
+
+	// validation pass
+	// encrypt password
 	var userPassword = bCrypt.hashSync(req.body.password, bCrypt.genSaltSync(8), null);
 
 	// find username in database
@@ -27,12 +32,13 @@ router.post('/sign-up', function(req, res) {
 			username: req.body.username
 		}
 	}).then(function(user) {
-
 		// check if username is taken already, else create user
 		if (user) {
 			return res.json({
 				success: false,
-				message: 'That username is already taken.',
+				errors: {
+					message:'That username is already taken.'
+				}
 			});
 		} else {
 			var userData = {
@@ -46,12 +52,17 @@ router.post('/sign-up', function(req, res) {
 				if (!newUser) {
 					return res.json({
 						success: false,
-						message: 'User was not saved to database.',
+						errors: {
+							message: 'User was not saved to database.'
+						}
 					});
 				}
 
 				if (newUser) {
-					return res.end();
+					return res.json({
+						success: true,
+						errors: {}
+					});
 				}
 			});
 		}
@@ -59,55 +70,68 @@ router.post('/sign-up', function(req, res) {
 });
 
 router.post('/login', function(req, res) {
+	// validate form
 	var validationResult = validateLoginForm(req.body);
+
+	// validation fail
 	if (!validationResult.success) {
-		console.log(validationResult);
 		return res.json({
 			success: false,
-			message: validationResult.message,
 			errors: validationResult.errors
 		});
 	}
+
+	// validation pass
 	// find user in database
 	db.User.findOne({
 		where: {
 			username: req.body.username
 		}
 	}).then(function(user) {
-		// check if user name and password are correct
+		// check if username and password are correct
 		if (!user) {
 			return res.json({
 				success: false,
-				message: 'Username does not exist.',
+				errors: {
+					message:'Username does not exist.'
+				}
 			});
 		}
-
 		if (!bCrypt.compareSync(req.body.password, user.password)) {
 			return res.json({
 				success: false,
-				message: 'Incorrect password.',
+				errors: {
+					message: 'Incorrect password.'
+				}
 			});
 		}
+		// create json web token and send to front-end
 		var token = jwt.sign({
+			userId: user.id,
 			username: user.username
 		}, jwtConfig.jwtSecret);
-		return res.json({ token });
-
+		return res.json({
+			success: true,
+			token: token
+		});
+	// catch errors
 	}).catch(function(err) {
 		console.log('Error: ' + err);
 		return res.json({
 			success: false,
-			message: 'Something went wrong with your login..',
+			errors: {
+				message: 'Something went wrong with your login.'
+			}
 		});
 	});
 });
 
 module.exports = router;
 
+//function to validate sign up form at /signup
 function validateSignupForm(payload) {
 	var errors = {};
 	var isFormValid = true;
-	var message = '';
 
 	if (!payload || typeof payload.username !== 'string' || payload.username.trim().length === 0) {
 		isFormValid = false;
@@ -119,7 +143,7 @@ function validateSignupForm(payload) {
 		errors.email = 'Please provide a correct email address.';
 	}
 
-	if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 4) {
+	if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 8) {
 		isFormValid = false;
 		errors.password = 'Password must have at least 8 characters.';
 	}
@@ -130,38 +154,38 @@ function validateSignupForm(payload) {
 	}
 
 	if (!isFormValid) {
-		message = 'Check the form for errors.';
+		errors.message = 'Check the form for errors.';
 	}
 
+	// return outcome of validation check
 	return {
 		success: isFormValid,
-		message,
 		errors
 	};
 }
 
+//function to validate login form at /login
 function validateLoginForm(payload) {
 	var errors = {};
 	var isFormValid = true;
-	var message = '';
 
 	if (!payload || typeof payload.username !== 'string' || payload.username.trim().length === 0) {
 		isFormValid = false;
 		errors.username = 'Please provide a username.';
 	}
 
-	if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 4) {
+	if (!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0) {
 		isFormValid = false;
-		errors.password = 'Password must have at least 4 characters.';
+		errors.password = 'Please provide a password.';
 	}
 
 	if (!isFormValid) {
-		message = 'Check the form for errors.';
+		errors.message = 'Check the form for errors.';
 	}
 
+	// return outcome of validation check
 	return {
 		success: isFormValid,
-		message,
 		errors
 	};
 }
