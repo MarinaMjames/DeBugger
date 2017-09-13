@@ -17,6 +17,12 @@ a:active {
 	text-decoration: none;
 	color: $yellow;
 }
+h3 {
+	color: $yellow;
+}
+td {
+	color: $font-color;
+}
 // IDs
 #phaser-demo {
 	margin-top: 10%;
@@ -112,4 +118,13 @@ a:active {
 	border-top-style: solid;
 	border-color: $second-color;
 	border-width: 2px;
+}
+.leaderboard {
+	margin-top: 20%;
+	margin-bottom: 20%;
+	margin-left: 3%;
+	color: $second-color;
+}
+.table thead th {
+	color: $orange;
 }
