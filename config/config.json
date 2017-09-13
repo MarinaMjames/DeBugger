@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Olivia13!",
+    "password": null,
     "database": "debugger_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
