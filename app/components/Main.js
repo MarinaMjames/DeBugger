@@ -1,8 +1,11 @@
 // Include React
-var React = require ("react");
+import React from 'react';
 
-var Link = require ("react-router");
 
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+// Grabs the Routes
+import Routes from '../config/routes';
 class Main extends React.Component{
 
   // Here we render the function
@@ -10,17 +13,13 @@ class Main extends React.Component{
 
     return (
       <div>
-        <h1>Hello World</h1>
-        <Link to="/saved">Click here for saved Articles</Link>
-        <hr/>
-        <Link to="/search">Click here to search for Articles</Link>
-        <div>
-          {this.props.children}
-        </div>
+        <Navbar />
+ 
+
+        <Footer />
       </div>
     )
   }
-}
+};
 
-// Export the component back for use in other files
 export default Main;

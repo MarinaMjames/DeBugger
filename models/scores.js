@@ -1,5 +1,34 @@
 module.exports = function(sequelize, DataTypes) {
-	var Scores = sequelize.define('Scores', {
-	});
-	return Scores;
-}
+
+  var score = sequelize.define("score", {
+	    
+      username: {
+        type: DataTypes.STRING
+      },
+      points: {
+	      type: DataTypes.INTEGER,
+        min: 0,
+        defaultValue: 0,
+        len: [1,10]
+
+	    },
+	}
+
+);
+
+
+ score.associate = function(models) {
+  
+    score.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });	
+
+    
+	};	 
+
+  return score;
+  
+};
+

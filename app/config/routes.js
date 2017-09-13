@@ -1,30 +1,48 @@
 // Inclue the React library
-var React = require("react");
+import React from "react";
 
 // Include the react-router module
-var router = require("react-router");
+// Include the Router component to contain all our Routes
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import Homepage from "../pages/Homepage";
+import Login from "../components/Login";
+import Signup from "../components/Signup";
+import Leaderboard from "../pages/Leaderboard";
+
+// import Game from "../pages/Game";
+import helpers from "../utils/helpers.js";
+
+
 
 // Include the Route component for displaying individual routes
-var Route = router.Route;
-
-// Include the Router component to contain all our Routes
-// Here where we can pass in some configuration as props
-var Router = router.Router;
-
-var browserHistory = router.browserHistory;
-
 // Include the IndexRoute (catch-all route)
-var IndexRoute = router.IndexRoute;
-
-// Reference the high-level components
-var Main = require("../components/Main");
 
 // Export the Routes
-module.exports = (
+const Routes = () => (
 
   // The high level component is the Router component
-  <Router history={browserHistory}>
-    <Route path="/" component={Main}>
-    </Route>
-  </Router>
+  <Router>
+
+        <div className="page col-xs-12 col-md-12">
+            <div className="navbar navbar-default navbar-fixed-top">
+            <span>DeBugger</span>
+              <div className="container">
+                <Link to="/">Home</Link>
+                <Link to="/signup">Sign Up</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/" onClick={helpers.userLogout}>Logout</Link>
+                <Link to="/leaderboard">Leaderboard</Link>
+                <a href="/game">Game</a>
+              </div>
+            </div>
+          <Route exact path="/" component={Homepage}/>
+          <Route exact path="/login" component={Login}/>
+          <Route exact path="/signup" component={Signup}/>
+          <Route exact path="/leaderboard" component={Leaderboard}/>
+
+        </div>
+      </Router>
+  
 );
+
+export default Routes;
