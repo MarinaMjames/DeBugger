@@ -28,10 +28,10 @@ var MAXSPEED = 400;
 
 function preload() {
     game.load.image('starfield', 'assets/starfield.png');
-    game.load.image('ship', 'assets/player.png');
+    game.load.image('ship', 'assets/WebDeveloper.png');
     game.load.image('bullet', 'assets/bullet.png');
-    game.load.image('enemy-green', 'assets/enemy-green.png');
-    game.load.image('enemy-blue', 'assets/enemy-blue.png');
+    game.load.image('enemy-green', 'assets/Bug-1.png');
+    game.load.image('enemy-blue', 'assets/Bug-2.png');
     game.load.image('blueEnemyBullet', 'assets/enemy-blue-bullet.png');
     game.load.spritesheet('explosion', 'assets/explode.png', 128, 128);
     game.load.bitmapFont('spacefont', 'assets/spacefont/spacefont.png', 'https://rawgit.com/jschomay/phaser-demo-game/master/assets/spacefont/spacefont.xml');  
