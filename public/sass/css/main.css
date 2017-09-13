@@ -10,6 +10,12 @@ a:active {
   text-decoration: none;
   color: #FFE400; }
 
+h3 {
+  color: #FFE400; }
+
+td {
+  color: #14A76C; }
+
 #phaser-demo {
   margin-top: 10%;
   margin-bottom: 10%;
@@ -92,5 +98,14 @@ a:active {
   border-top-style: solid;
   border-color: #747474;
   border-width: 2px; }
+
+.leaderboard {
+  margin-top: 20%;
+  margin-bottom: 20%;
+  margin-left: 3%;
+  color: #747474; }
+
+.table thead th {
+  color: #FF652F; }
 
 /*# sourceMappingURL=main.css.map */

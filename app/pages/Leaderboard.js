@@ -24,15 +24,15 @@ export default class Signup extends React.Component{
 
     return (
 
-      <div className="">
+      <div className="leaderboard">
 
         <h3>Leaderboard</h3>
         <table className="table">
         	<thead>
 	        	<tr>
-	        		<th>Pos.</th>
-	        		<th>Username</th>
-	        		<th>Score</th>
+	        		<th className="header">Pos.</th>
+	        		<th className="header">Username</th>
+	        		<th className="header">Score</th>
 	        	</tr>
         	</thead>
         	<tbody>
