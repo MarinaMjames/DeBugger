@@ -1,17 +1,11 @@
-
+// node packages
+var express = require('express');
 // import files
 var authenticate = require('../authentication/authenticate.js');
-
-// setup router
-var router = express.Router();
-
 var db = require('../models');
+
 // setup router
 var router = express.Router();
-
-router.get('/path', function(req, res) {
-	console.log("path works");
-});
 
 router.post('/score/new', function (req, res) {
 	console.log(req.body.score);
