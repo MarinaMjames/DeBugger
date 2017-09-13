@@ -28,10 +28,10 @@ var MAXSPEED = 400;
 
 function preload() {
     game.load.image('starfield', 'assets/starfield.png');
-    game.load.image('ship', 'assets/player.png');
+    game.load.image('ship', 'assets/WebDeveloper.png');
     game.load.image('bullet', 'assets/bullet.png');
-    game.load.image('enemy-green', 'assets/enemy-green.png');
-    game.load.image('enemy-blue', 'assets/enemy-blue.png');
+    game.load.image('enemy-green', 'assets/Bug-1.png');
+    game.load.image('enemy-blue', 'assets/Bug-2.png');
     game.load.image('blueEnemyBullet', 'assets/enemy-blue-bullet.png');
     game.load.spritesheet('explosion', 'assets/explode.png', 128, 128);
     game.load.bitmapFont('spacefont', 'assets/spacefont/spacefont.png', 'https://rawgit.com/jschomay/phaser-demo-game/master/assets/spacefont/spacefont.xml');  
@@ -225,20 +225,32 @@ function update() {
     game.physics.arcade.overlap(greenEnemies, bullets, hitEnemy, null, this);
 
     game.physics.arcade.overlap(player, blueEnemies, shipCollide, null, this);
-    game.physics.arcade.overlap(bullets, blueEnemies, hitEnemy, null, this);
+    game.physics.arcade.overlap(blueEnemies, bullets, hitEnemy, null, this);
 
     game.physics.arcade.overlap(blueEnemyBullets, player, enemyHitsPlayer, null, this);
 
     //  Game over?
     if (! player.alive && gameOver.visible === false) {
+        console.log("before post: " + score);
+        $.ajax({
+            url: "/api/score/new",
+            type: "post",
+            headers: {'Authorization': 'Bearer '+localStorage.getItem('token')},
+            poccessData: false,
+            data: {score: score}
+        }).done(function(){
+                console.log("score added")
+            });
         gameOver.visible = true;
         gameOver.alpha = 0;
         var fadeInGameOver = game.add.tween(gameOver);
+
         fadeInGameOver.to({alpha: 1}, 1000, Phaser.Easing.Quintic.Out);
         fadeInGameOver.onComplete.add(setResetHandlers);
         fadeInGameOver.start();
         function setResetHandlers() {
             //  The "click to restart" handler
+
             tapRestart = game.input.onTap.addOnce(_restart,this);
             spaceRestart = fireButton.onDown.addOnce(_restart,this);
             function _restart() {

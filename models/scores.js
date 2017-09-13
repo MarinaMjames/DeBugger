@@ -2,6 +2,9 @@ module.exports = function(sequelize, DataTypes) {
 
   var score = sequelize.define("score", {
 	    
+      username: {
+        type: DataTypes.STRING
+      },
       points: {
 	      type: DataTypes.INTEGER,
         min: 0,

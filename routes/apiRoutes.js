@@ -2,14 +2,27 @@
 var express = require('express');
 // import files
 var authenticate = require('../authentication/authenticate.js');
+var db = require('../models');
 
 // setup router
 var router = express.Router();
 
-router.get('/path', authenticate, function(req, res) {
-	// use 'authenticate' to authenticate user apon request
-	// user id and username will be in req.user.(id or username) if succesfully authenticated.
-	res.json({ success: true, username: req.username });
+router.post('/score/new', authenticate, function (req, res) {
+	db.score.create({
+		"UserId": req.user.id,
+		"username": req.user.username,
+		"points": req.body.score
+	}).then(function(data){
+		res.end();
+		console.log("score sent");
+	});
+});
+
+router.get('/score', function (req, res) {
+	db.score.findAll().then(function(data){
+		res.json({data});
+	});
 });
 
 module.exports = router;
+
