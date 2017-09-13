@@ -9,12 +9,14 @@ export default class Signup extends React.Component{
     super(props);
 
     this.state = {
-      Leaderboard: [
-        {position: '1', name: 'Moe', score: '1000'},
-        {position: '1', name: 'Larry', score: '900'},
-        {position: '1', name: 'Curly', score: '800'}
-      ]
+      Leaderboard: []
     }
+  }
+
+  componentDidMount() {
+    helpers.getScores().then((response) => {
+        this.setState({ Leaderboard: response.data })
+    });
   }
 
   // render component
@@ -37,10 +39,10 @@ export default class Signup extends React.Component{
             {
               this.state.Leaderboard.map((leaders, index) => {
                 return (
-                  <tr>
-                    <td>{leaders.position}</td>
-                    <td>{leaders.name}</td>
-                    <td>{leaders.score}</td>
+                  <tr key={index}>
+                    <td>{index+1}</td>
+                    <td>{leaders.username}</td>
+                    <td>{leaders.points}</td>
                   </tr>
                 );
               })

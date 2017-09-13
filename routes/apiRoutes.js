@@ -8,20 +8,20 @@ var db = require('../models');
 var router = express.Router();
 
 router.post('/score/new', authenticate, function (req, res) {
-	console.log('req.body:',req.body);
-	console.log('user:',req.user);
 	db.score.create({
+		"UserId": req.user.id,
+		"username": req.user.username,
 		"points": req.body.score
 	}).then(function(data){
+		res.end();
 		console.log("score sent");
 	});
 });
 
-
-router.get('/path', authenticate, function(req, res) {
-	// use 'authenticate' to authenticate user apon request
-	// user id and username will be in req.user.(id or username) if succesfully authenticated.
-	res.json({ success: true, username: req.username });
+router.get('/score', function (req, res) {
+	db.score.findAll().then(function(data){
+		res.json({data});
+	});
 });
 
 module.exports = router;

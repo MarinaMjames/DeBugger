@@ -40,6 +40,13 @@ const helpers = {
 			delete axios.defaults.headers.common['Authorization'];
 		}
 	},
+	getScores: () => {
+		return axios.get('/api/score').then((response) => {
+			return response.data;
+		}).catch((error) => {
+			return error;
+		});
+	},
 	getUser: () => {
 		// get token from local storage and decode it to get username
 		const token = localStorage.getItem('token');
