@@ -232,8 +232,13 @@ function update() {
     //  Game over?
     if (! player.alive && gameOver.visible === false) {
         console.log("before post: " + score);
-        $.post("/api/score/new", {score: score})
-            .done(function(){
+        $.ajax({
+            url: "/api/score/new",
+            type: "post",
+            headers: {'Authorization': 'Bearer '+localStorage.getItem('token')},
+            poccessData: false,
+            data: {score: score}
+        }).done(function(){
                 console.log("score added")
             });
         gameOver.visible = true;

@@ -9,7 +9,9 @@ export default class Signup extends React.Component{
     super(props);
 
     this.state = {
-      
+      Leaderboard: [{position: '1', name: 'Marina', score: '1000'},
+      {position: '1', name: 'Joe', score: '900'},
+      {position: '1', name: 'Andrew', score: '800'}]
     }
 
     // bind component functions
@@ -32,6 +34,7 @@ export default class Signup extends React.Component{
 	        	</tr>
         	</thead>
         	<tbody>
+            {}
 	        	<tr>
 	        		<td>1</td>
 	        		<td>Joe</td>

@@ -8,9 +8,9 @@ var db = require('../models');
 var router = express.Router();
 
 router.post('/score/new', authenticate, function (req, res) {
-	console.log(req.body.score);
+	console.log('req.body:',req.body);
+	console.log('user:',req.user);
 	db.score.create({
-		"userId": req.user.id,
 		"points": req.body.score
 	}).then(function(data){
 		console.log("score sent");
