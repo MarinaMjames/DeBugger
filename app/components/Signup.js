@@ -35,7 +35,6 @@ export default class Signup extends React.Component{
   // submit sign up form
   onSubmit(e) {
     e.preventDefault();
-    console.log(helpers.getUser());
     this.setState({ errors: {}, isLoading: true });
     helpers.userSignup(this.state.user).then((data) => {
       // if errors are returned save them to state
@@ -55,7 +54,7 @@ export default class Signup extends React.Component{
 
       <div className="form col-xs-6 col-md-6">
         <form onSubmit={this.onSubmit}>
-          {this.state.errors.message && <p className="help is-danger">{this.state.errors.message}</p>}
+          {this.state.errors.message && <p className="help is-danger has-text-centered">{this.state.errors.message}</p>}
           <div className="field">
             <div className="control">
               <input
