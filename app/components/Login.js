@@ -48,7 +48,8 @@ export default class Login extends React.Component{
   render() {
 
     return (
-      <div className="col-xs-12 col-md-12">
+
+      <div className="form col-xs-12 col-md-12">
         <form onSubmit={this.onSubmit}>
           {this.state.errors.message && <p className="help is-danger">{this.state.errors.message}</p>}
           <div className="field">
@@ -63,6 +64,7 @@ export default class Login extends React.Component{
               />
               {this.state.errors.username && <p className="help is-danger">{this.state.errors.username}</p>}
             </div>
+
           </div>
           <div className="field">
             <div className="control">

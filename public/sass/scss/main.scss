@@ -1,0 +1,115 @@
+$font-family: 'Press Start 2P', cursive;
+$font-color: #14A76C; //#FE09B5
+$bkground: #272727; //#00002B
+$second-color: #747474; //#09FEC5
+$yellow: #FFE400; //#8D029D
+$orange: #FF652F;
+// GLOBAL
+a {
+	text-decoration: none;
+	color: $orange;
+}
+a:hover {
+	text-decoration: none;
+	color: $yellow;
+}
+a:active {
+	text-decoration: none;
+	color: $yellow;
+}
+// IDs
+#phaser-demo {
+	margin-top: 10%;
+	margin-bottom: 10%;
+	margin-left: 15%;
+}
+
+// CLASSES
+.navbar {
+	position: absolute;
+	display: flex;
+	padding: 0px;
+}
+.navbar-default {
+	color: $second-color;
+	background-color: $bkground;
+	border-color: $second-color;
+	margin-bottom: 10%;
+}
+.page {
+	background-color: $bkground;
+}
+.jumbotron {
+	margin-top: 100px;
+	margin-right: 0px;
+	margin-left: 0px;
+	background-image: url("https://user-images.githubusercontent.com/26077051/30303745-e92464a8-9737-11e7-9e69-2fc637ac31d4.png");
+	
+	.display-3{
+		font-family: $font-family;
+		color: $font-color;
+		text-shadow:  2px 2px #FF652F;	//#09FEC5
+	}
+	p {
+		color: $second-color;
+	}
+}
+.card {
+	border-color: $second-color;
+	background-color: $bkground;
+	margin-bottom: 20%;
+	margin-top: 10%;
+	width: 30%;
+	margin-right: 15%;
+	.card-title{
+		color: $yellow;
+	}
+	.card-img-top {
+		width: 100px;
+	}
+	.btn-primary{
+		background-color: $font-color;
+		border-color: $second-color;
+	}
+	.btn-primary:hover {
+		background-color: $yellow;
+		border-color: $yellow;
+		color: $bkground;
+	}
+	.btn-primary:active {
+		background-color: $yellow;
+		border-color: $yellow;
+		color: $bkground;	
+	}
+}
+
+.button {
+	background-color: $font-color;
+	border-color: $second-color;
+
+}
+.button:hover {
+		background-color: $yellow;
+		border-color: $yellow;
+		color: $bkground;
+}
+.button:active {
+		background-color: $yellow;
+		border-color: $yellow;
+		color: $bkground;
+}
+.form {
+	margin-top: 20%;
+	width: 50%;
+	margin-bottom: 20%;
+	align-content: center;
+	margin-left: 20%;
+}
+.footer {
+	background-color: $bkground;
+	color: $second-color;
+	text-align: center;
+	border-top-style: solid;
+	border-color: $second-color;
+	border-width: 2px;
+}
