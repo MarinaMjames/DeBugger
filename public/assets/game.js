@@ -1,6 +1,3 @@
-console.log("Game.js has loaded!");
-// var Phaser = require("phaser");
-
 var game = new Phaser.Game(800,600, Phaser.AUTO, 'phaser-demo', {preload: preload, create: create, update: update, render: render});
 
 var player;

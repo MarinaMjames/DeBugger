@@ -1,0 +1,96 @@
+a {
+  text-decoration: none;
+  color: #FF652F; }
+
+a:hover {
+  text-decoration: none;
+  color: #FFE400; }
+
+a:active {
+  text-decoration: none;
+  color: #FFE400; }
+
+#phaser-demo {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-left: 15%; }
+
+.navbar {
+  position: absolute;
+  display: flex;
+  padding: 0px; }
+
+.navbar-default {
+  color: #747474;
+  background-color: #272727;
+  border-color: #747474;
+  margin-bottom: 10%; }
+
+.page {
+  background-color: #272727; }
+
+.jumbotron {
+  margin-top: 100px;
+  margin-right: 0px;
+  margin-left: 0px;
+  background-image: url("https://user-images.githubusercontent.com/26077051/30303745-e92464a8-9737-11e7-9e69-2fc637ac31d4.png"); }
+  .jumbotron .display-3 {
+    font-family: "Press Start 2P", cursive;
+    color: #14A76C;
+    text-shadow: 2px 2px #FF652F; }
+  .jumbotron p {
+    color: #747474; }
+
+.card {
+  border-color: #747474;
+  background-color: #272727;
+  margin-bottom: 20%;
+  margin-top: 10%;
+  width: 30%;
+  margin-right: 15%; }
+  .card .card-title {
+    color: #FFE400; }
+  .card .card-img-top {
+    width: 100px; }
+  .card .btn-primary {
+    background-color: #14A76C;
+    border-color: #747474; }
+  .card .btn-primary:hover {
+    background-color: #FFE400;
+    border-color: #FFE400;
+    color: #272727; }
+  .card .btn-primary:active {
+    background-color: #FFE400;
+    border-color: #FFE400;
+    color: #272727; }
+
+.button {
+  background-color: #14A76C;
+  border-color: #747474; }
+
+.button:hover {
+  background-color: #FFE400;
+  border-color: #FFE400;
+  color: #272727; }
+
+.button:active {
+  background-color: #FFE400;
+  border-color: #FFE400;
+  color: #272727; }
+
+.form {
+  margin-top: 20%;
+  width: 50%;
+  margin-bottom: 20%;
+  align-content: center;
+  margin-left: 20%; }
+
+.footer {
+  background-color: #272727;
+  color: #747474;
+  text-align: center;
+  border-top-style: solid;
+  border-color: #747474;
+  border-width: 2px; }
+
+/*# sourceMappingURL=main.css.map */
